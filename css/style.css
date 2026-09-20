@@ -108,3 +108,23 @@ footer {
   margin-bottom: 1rem;
   font-size: 6vh;
 }
+
+.perguntas{
+  
+  border: 1px solid #f39c12;
+}
+.perguntas h3 {
+  color: #f39c12;
+  font-size: 2vh;
+  
+}
+.perguntas p {
+  color:rgb(8, 8, 8);
+  font-size: 1.5vh;
+  font-weight: normal;
+}
+.perguntasfrequentes{
+  color: #f39c12;
+  font-size: 3vh;
+}
+
