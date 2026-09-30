@@ -3,54 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meu Site - Página Principal</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <title>Turma do Bem - Contato</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header class="header">
+      <a href="index.html" class="logo">
+        <img
+          src="img/logo-turma-do-bem.png"
+          alt="Logo da Turma do Bem"
+          class="logo-image"
+        />
+      </a>
+
       <nav class="nav">
-        <a href="index.html"
-          ><img
-            src="img/logo-turma-do-bem.png"
-            alt=" Logo da Turma do Bem"
-            class="logo-image"
-        /></a>
-        <button class="nav-button"><a href="index.html">Início</a></button>
-        <button class="nav-button">
-          <a href="inter.html">Intergrantes</a>
-        </button>
-        <button class="nav-button"><a href="sobre.html">Sobre Nós</a></button>
-        <button class="nav-button"><a href="contato.html">Contato</a></button>
-        <button class="nav-button"><a href="faq.html">FAQ</a></button>
+        <a href="index.html" class="nav-button">Início</a>
+        <a href="inter.html" class="nav-button">Integrantes</a>
+        <a href="sobre.html" class="nav-button">Sobre Nós</a>
+        <a href="contato.html" class="nav-button active">Contato</a>
+        <a href="faq.html" class="nav-button">FAQ</a>
       </nav>
     </header>
 
     <main>
-      <h1>Fale Conosco</h1>
-      <p>
-        Sinta-se à vontade para entrar em contato conosco. Tire suas dúvidas,
-        envie sugestões ou saiba como ajudar!
-      </p>
-
-      <!-- Informações diretas de contato -->
-      <div class="contato-info">
-        <h3>Nossos Canais</h3>
-        <p><strong>E-mail:</strong> contato@turmadobem.org.br</p>
-        <p><strong>Telefone:</strong> (11) 5084-5118</p>
-        <p><strong>WhatsApp:</strong> (11) 99999-9999</p>
-        <p>
-          <strong>Endereço:</strong> Rua Tupi, 123 - Pacaembu, São Paulo - SP
+      <section class="page-header">
+        <h1 class="h1">Fale <span>Conosco</span></h1>
+        <p class="page-subtitle">
+          Tire suas dúvidas, envie sugestões ou saiba como ajudar. Será um
+          prazer ouvir você!
         </p>
-      </div>
+      </section>
 
-      <hr />
+      <!-- Cards com canais de contato -->
+      <section class="contato-canais">
+        <div class="canal-card">
+          <h3>E-mail</h3>
+          <p>contato@turmadobem.org.br</p>
+        </div>
+
+        <div class="canal-card">
+          <h3>Telefone</h3>
+          <p>(11) 5084-5118</p>
+        </div>
+
+        <div class="canal-card">
+          <h3>WhatsApp</h3>
+          <p>(11) 99999-9999</p>
+        </div>
+
+        <div class="canal-card">
+          <h3>Endereço</h3>
+          <p>Rua Tupi, 123 – Pacaembu<br />São Paulo – SP</p>
+        </div>
+      </section>
     </main>
 
     <footer>
-      <p>&copy; 2026 Turma do Bem.</p>
+      <p>&copy; 2026 Turma do Bem. Todos os direitos reservados.</p>
     </footer>
   </body>
 </html>
