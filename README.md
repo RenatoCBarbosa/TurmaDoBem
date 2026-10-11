@@ -43,6 +43,7 @@ Link para o repositório do projeto: https://github.com/RenatoCBarbosa/TurmaDoBe
 ## Contato
 
 Leonel Almeida
+
 https://github.com/Leo9dois8 / https://www.linkedin.com/in/leonelalmeida
 
 Arthur Lopes
@@ -50,6 +51,7 @@ Arthur Lopes
 https://github.com/ArthurLope5S / https://www.linkedin.com/in/arthur-lopes-943814263
 
 Renato Barbosa
+
 https://github.com/RenatoCBarbosa / https://www.linkedin.com/in/renato-barbosa-896b08381
 
 Pedro Silva de Lima
