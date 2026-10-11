@@ -46,17 +46,23 @@ Leonel Almeida
 
 https://github.com/Leo9dois8 / https://www.linkedin.com/in/leonelalmeida
 
+
 Arthur Lopes
 
 https://github.com/ArthurLope5S / https://www.linkedin.com/in/arthur-lopes-943814263
+
 
 Renato Barbosa
 
 https://github.com/RenatoCBarbosa / https://www.linkedin.com/in/renato-barbosa-896b08381
 
+
 Pedro Silva de Lima
+
 https://github.com/pedrosilvadelima2206-ux / https://www.linkedin.com/in/pedro-silva-1a45b7440
 
+
 Bruno 
+
 https://github.com/Beloot / https://www.linkedin.com/in/bruno-correia-54a96b42a
 
