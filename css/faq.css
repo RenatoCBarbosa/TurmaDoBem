@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e5e5e5; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.decoracao-fundo {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; 
+  z-index: 0;
+}
+
+.bola {
+  position: absolute;
+  animation: flutuar 6s ease-in-out infinite;
+}
+
+.bola-v1 { width: 300px; top: -100px; right: -100px; animation-delay: 0s; }
+.bola-v2 { width: 150px; top: 150px; right: 30px; animation-delay: 2s; }
+.bola-v3 { width: 60px; top: 280px; right: 10px; animation-delay: 4s; }
+.bola-l1 { width: 300px; bottom: -100px; left: -100px; animation-delay: 1s; }
+.bola-l2 { width: 200px; bottom: 150px; left: 20px; animation-delay: 3s; }
+.bola-l3 { width: 60px; bottom: 280px; left: 0px; animation-delay: 5s; }
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.fade {
+  animation: flutuar 6s ease-in-out infinite, piscar 4s ease-in-out infinite alternate;
+}
+
+@keyframes piscar {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.header {
+  background-color: rgba(181, 187, 15, 0.6); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 3rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-height: 75px;
+}
+
+.logo {
+  z-index: 2;
+}
+
+.logo-image {
+  height: 55px;
+  width: auto;
+  display: block;
+}
+
+.nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.botao-nav {
+  display: block;
+  height: 45px; 
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-inicio { width: 150px; }
+.btn-faq { width: 150px; }
+.btn-integrantes { width: 150px; }
+.btn-sobre { width: 150px; }
+.btn-contato { width: 150px; }
+
+.btn-inicio { background-image: url('../img/inicio.png'); }
+.btn-faq { background-image: url('../img/faq.png'); }
+.btn-integrantes { background-image: url('../img/integrantes.png'); }
+.btn-sobre { background-image: url('../img/sobre.png'); }
+.btn-contato { background-image: url('../img/contato.png'); }
+
+.btn-inicio:hover { background-image: url('../img/inicio-laranja.png'); }
+.btn-faq:hover { background-image: url('../img/faq-laranja.png'); }
+.btn-integrantes:hover { background-image: url('../img/integrantes-laranja.png'); }
+.btn-sobre:hover { background-image: url('../img/sobre-laranja.png'); }
+.btn-contato:hover { background-image: url('../img/contato-laranja.png'); }
+
+.botao-nav:hover {
+  transform: scale(1.1);
+}
+
+.main-content {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.page-title span {
+  color: #e67e22;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.faq-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.faq-item {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-left: 6px solid #e67e22;
+  transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateX(5px);
+}
+
+.faq-item h3 {
+  color: #e67e22;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+}
+
+.faq-item p {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.faq-item ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+  color: #444;
+  font-size: 1rem;
+}
+
+.faq-item ul li {
+  margin-bottom: 0.3rem;
+}
+
+.faq-item a {
+  color: #e67e22;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.faq-item a:hover {
+  border-bottom-color: #e67e22;
+}
+
+.faq-item strong {
+  color: #e67e22;
+}
+
+.footer {
+  position: relative;
+  z-index: 10;
+  background-color: rgba(181, 187, 15, 0.6); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff; 
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.2); 
+}
