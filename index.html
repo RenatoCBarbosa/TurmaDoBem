@@ -1,95 +1,182 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Turma do Bem - Início</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <a href="index.html" class="logo">
-        <img
-          src="img/logo-turma-do-bem.png"
-          alt="Logo da Turma do Bem"
-          class="logo-image"
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turma do Bem - Início</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- BOLAS DE FUNDO -->
+  <div class="decoracao-fundo">
+    <img src="img/bola-verde.png" alt="" class="bola bola-v1">
+    <img src="img/bola-verde.png" alt="" class="bola bola-v2 fade">
+    <img src="img/bola-verde.png" alt="" class="bola bola-v3">
+    <img src="img/bola-laranja.png" alt="" class="bola bola-l1">
+    <img src="img/bola-laranja.png" alt="" class="bola bola-l2 fade">
+    <img src="img/bola-laranja.png" alt="" class="bola bola-l3">
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="index.html" class="logo">
+      <img src="img/logo-turma-do-bem.png" alt="Logo" class="logo-image" />
+    </a>
+
+    <!-- MENU DROPDOWN -->
+    <nav class="nav">
+      <ul class="menu-principal">
+        
+        <!-- Item Início -->
+        <li class="menu-item">
+          <a href="index.html" class="botao-nav btn-inicio" aria-label="Início"></a>
+          <ul class="dropdown">
+            <li><a href="doac.html">Doação</a></li>
+            <li><a href="#midia">Onde a TdB apareceu</a></li>
+          </ul>
+        </li>
+
+        <!-- Item FAQ -->
+        <li class="menu-item">
+          <a href="faq.html" class="botao-nav btn-faq" aria-label="FAQ"></a>
+          <ul class="dropdown">
+            <li><a href="faq.html">Dúvidas Frequentes</a></li>
+            <li><a href="contato.html">Tire sua Dúvida</a></li>
+          </ul>
+        </li>
+
+        <!-- Item Integrantes -->
+        <li class="menu-item">
+          <a href="inter.html" class="botao-nav btn-integrantes" aria-label="Integrantes"></a>
+          <ul class="dropdown">
+            <li><a href="inter.html">Conheça a Equipe</a></li>
+            <li><a href="sobre.html">Ferramentas que Usamos</a></li>
+          </ul>
+        </li>
+
+        <!-- Item Sobre -->
+        <li class="menu-item">
+          <a href="sobre.html" class="botao-nav btn-sobre" aria-label="Sobre Nós"></a>
+          <ul class="dropdown">
+            <li><a href="sobre.html">A ONG</a></li>
+            <li><a href="sobre.html#projeto">Nosso Projeto</a></li>
+          </ul>
+        </li>
+
+        <!-- Item Contato -->
+        <li class="menu-item">
+          <a href="contato.html" class="botao-nav btn-contato" aria-label="Contato"></a>
+          <ul class="dropdown">
+            <li><a href="contato.html">Fale Conosco</a></li>
+          </ul>
+        </li>
+
+        <!-- Item Quero Doar (Novo) -->
+        <li class="menu-item">
+          <a href="https://paybox.doare.org/paybox?payboxId=83fed202-df0f-4665-9c74-688a834028d4" target="_blank" class="botao-nav btn-quero-doar" aria-label="Quero Doar"></a>
+        </li>
+
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="main-content">
+    
+    <section class="hero">
+      <h1 class="hero-title">Mostre seu melhor <span>Sorriso</span> ao mundo.</h1>
+      <p class="hero-text">
+        A Turma do Bem é a maior rede de voluntariado especializado do mundo. Transformamos a vida de jovens e mulheres em situação de vulnerabilidade através da saúde bucal.
+      </p>
+    </section>
+
+    <!-- 3 BOTÕES GRANDES -->
+    <section class="acoes-principais">
+      <a href="doac.html" class="card-acao card-doacao">
+        <div class="card-content">
+          <h2>FAÇA SUA<br><span>DOAÇÃO</span></h2>
+          <p>Contribua para a inclusão social através da saúde bucal. Junte-se à TdB e faça a diferença!</p>
+        </div>
       </a>
-<!--teste vendo se o pc da fiap é capaz de ser util-->
 
-      <nav class="nav">
-        <a href="index.html" class="nav-button active">Início</a>
-        <a href="inter.html" class="nav-button">Integrantes</a>
-        <a href="sobre.html" class="nav-button">Sobre Nós</a>
-        <a href="contato.html" class="nav-button">Contato</a>
-        <a href="faq.html" class="nav-button">FAQ</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <h1 class="h1">Mostre seu melhor <span>Sorriso</span> ao mundo.</h1>
-        <p class="hero-text">
-          Somos uma equipe dedicada a levar alegria, esperança e dignidade a
-          quem mais precisa. Acreditamos que um sorriso pode transformar vidas.
-        </p>
-        <div class="hero-buttons">
-          <a href="contato.html" class="btn btn-primary">Quero Ajudar</a>
-          <a href="sobre.html" class="btn btn-outline">Saiba Mais</a>
+      <a href="contato.html" class="card-acao card-voluntario">
+        <div class="card-content">
+          <h2>SEJA<br><span>VOLUNTÁRIO</span></h2>
+          <p>Se você é cirurgião-dentista e quer fazer parte da maior rede de voluntariado do mundo, clique aqui.</p>
         </div>
-      </section>
+      </a>
 
-      <section class="sobre">
-        <h2>Quem somos</h2>
-        <p>
-          A <strong>Turma do Bem</strong> é uma organização sem fins lucrativos
-          formada por voluntários apaixonados por transformação social. Atuamos
-          em comunidades, hospitais, escolas e instituições parceiras,
-          promovendo ações de apoio emocional, recreação e doações.
-        </p>
-        <p>
-          Nosso propósito é simples: espalhar o bem. Cada gesto de bondade é um
-          passo em direção a uma sociedade mais justa, humana e cheia de
-          sorrisos.
-        </p>
-      </section>
-
-      <section class="cards">
-        <div class="card">
-          <h3>🤝 Voluntariado</h3>
-          <p>
-            Participe das nossas ações e doe um pouco do seu tempo para quem
-            precisa.
-          </p>
+      <a href="contato.html" class="card-acao card-ajuda">
+        <div class="card-content">
+          <h2>PRECISO DE<br><span>AJUDA</span></h2>
+          <p>Se você tem entre 11 e 17 anos, possui graves problemas odontológicos e não pode pagar, nós podemos ajudar.</p>
         </div>
-        <div class="card">
-          <h3>💛 Doações</h3>
-          <p>
-            Sua contribuição ajuda a manter nossos projetos e a levar sorrisos
-            mais longe.
-          </p>
-        </div>
-        <div class="card">
-          <h3>🌟 Projetos</h3>
-          <p>
-            Desenvolvemos atividades educativas, recreativas e de cidadania em
-            várias comunidades.
-          </p>
-        </div>
-      </section>
+      </a>
+    </section>
 
-      <section class="cta">
-        <h2>Faça parte dessa corrente do bem!</h2>
-        <p>
-          Junte-se a nós como voluntário, doador ou parceiro. Cada gesto conta e
-          juntos podemos fazer a diferença.
-        </p>
-        <a href="contato.html" class="btn btn-primary">Entrar em Contato</a>
-      </section>
-    </main>
+    <!-- NÚMEROS -->
+    <section class="numeros">
+      <h2 class="section-title"><span>TURMA DO BEM</span><br>EM NÚMEROS</h2>
+      <div class="numeros-grid">
+        <div class="numero-item">
+          <div class="numero-icone icone-verde">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <h3>+90 mil</h3>
+          <p>jovens atendidos</p>
+        </div>
+        <div class="numero-item">
+          <div class="numero-icone icone-laranja">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M12 13v8"></path><path d="M8 21h8"></path></svg>
+          </div>
+          <h3>+1,2 mil</h3>
+          <p>mulheres atendidas</p>
+        </div>
+        <div class="numero-item">
+          <div class="numero-icone icone-verde">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3>+18 mil</h3>
+          <p>dentistas voluntários</p>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-      <p>&copy; 2026 Turma do Bem. Todos os direitos reservados.</p>
-    </footer>
-  </body>
+    <!-- DEPOIMENTO -->
+    <section class="depoimento-section">
+      <div class="depoimento-container">
+        <img src="img/pedro-beneficiario-turma-do-bem-1.jpg" alt="Pedro Gabriel" class="depoimento-foto" onerror="this.src='https://via.placeholder.com/300x300?text=Foto'">
+        <div class="depoimento-texto">
+          <blockquote>
+            "Eu sentia vergonha de sair e ir à escola, pois precisaria conversar com as pessoas e sorrir. Hoje, converso com os outros sem receios. Graças a eles, sou uma pessoa mais alegre. Sou grato, de coração, por isso."
+          </blockquote>
+          <p class="autor"><strong>Pedro Gabriel Lopes</strong>, beneficiário da Turma do Bem</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE MÍDIA (Onde a ONG apareceu) -->
+    <section class="parceiros" id="midia">
+      <div class="parceiros-bloco">
+        <h2 class="section-title"><span>TDB</span><br>NA MÍDIA</h2>
+        <div class="logos-grid">
+          <div class="logo-placeholder">Estadão</div>
+          <div class="logo-placeholder">G1</div>
+          <div class="logo-placeholder">Folha</div>
+          <div class="logo-placeholder">R7</div>
+          <div class="logo-placeholder">Glamurama</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Feito pela equipe Bem Coletivo &copy; 2026</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
 </html>

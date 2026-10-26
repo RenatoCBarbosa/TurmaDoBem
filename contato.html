@@ -12,7 +12,6 @@
       <img src="img/bola-verde.png" alt="" class="bola bola-v1">
       <img src="img/bola-verde.png" alt="" class="bola bola-v2 fade">
       <img src="img/bola-verde.png" alt="" class="bola bola-v3">
-  
       <img src="img/bola-laranja.png" alt="" class="bola bola-l1">
       <img src="img/bola-laranja.png" alt="" class="bola bola-l2 fade">
       <img src="img/bola-laranja.png" alt="" class="bola bola-l3">
@@ -20,14 +19,16 @@
 
     <header class="header">
       <a href="index.html" class="logo">
-        <img
-          src="img/logo-turma-do-bem.png"
-          alt="Logo da Turma do Bem"
-          class="logo-image"
-        />
+        <img src="img/logo-turma-do-bem.png" alt="Logo" class="logo-image" />
       </a>
 
-      <nav class="nav">
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <nav class="nav" id="nav-menu">
         <a href="index.html" class="botao-nav btn-inicio" aria-label="Início"></a>
         <a href="faq.html" class="botao-nav btn-faq" aria-label="FAQ"></a>
         <a href="inter.html" class="botao-nav btn-integrantes" aria-label="Integrantes"></a>
@@ -43,40 +44,57 @@
           Tire suas dúvidas, envie sugestões ou saiba como ajudar. Será um prazer ouvir você!
         </p>
       </section>
-      <section class="contato-canais">
-        <div class="canal-card">
-          <h3>Duvidas:</h3><form action="" method="post">
-            <input type="text" id="txtDuvidas" name="txtDuvidas">
-          </form>
-        </div>
-      </section>
 
-      <!-- Cards com canais de contato -->
       <section class="contato-canais">
         <div class="canal-card">
           <h3>E-mail</h3>
           <p>contato@turmadobem.org.br</p>
         </div>
-
         <div class="canal-card">
           <h3>Telefone</h3>
           <p>(11) 5084-5118</p>
         </div>
-
         <div class="canal-card">
           <h3>WhatsApp</h3>
           <p>(11) 99999-9999</p>
         </div>
-
         <div class="canal-card">
           <h3>Endereço</h3>
           <p>Rua Tupi, 123 – Pacaembu<br />São Paulo – SP</p>
         </div>
+      </section>
+
+      <section class="contato-form-section">
+        <h2>Envie uma mensagem</h2>
+        <form id="form-contato" novalidate>
+          
+          <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" />
+            <span class="error-msg" id="error-nome"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" />
+            <span class="error-msg" id="error-email"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem..."></textarea>
+            <span class="error-msg" id="error-mensagem"></span>
+          </div>
+
+          <button type="submit" class="btn-enviar">Enviar mensagem</button>
+        </form>
       </section>
     </main>
 
     <footer class="footer">
       <p>Feito pela equipe Bem Coletivo.</p>
     </footer>
+
+    <script src="Js/script.js"></script>
   </body>
 </html>

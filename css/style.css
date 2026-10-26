@@ -1,10 +1,3 @@
-/*Cor laranja: #e67e22
-/*Cor verder: #b5bb0f
-
-
-/* =========================================================
-   RESET E BASE
-   ========================================================= */
 * {
   margin: 0;
   padding: 0;
@@ -14,518 +7,436 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
-main {
-  flex: 1;
-  width: 90%;
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 0;
+/* ===== BOLAS DE FUNDO ANIMADAS ===== */
+.decoracao-fundo { 
+  position: fixed; 
+  inset: 0; 
+  pointer-events: none; 
+  z-index: 0; 
 }
 
-/* =========================================================
-   COMPONENTES GLOBAIS (botões, títulos, cards genéricos)
-   ========================================================= */
-.h1 {
-  font-size: 3rem;
-  color: #f39c12;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+.bola { 
+  position: absolute; 
+  animation: flutuar 6s ease-in-out infinite; 
 }
 
-.h1 span {
-  color: #e67e22;
-  font-weight: 900;
+.bola-v1 { width: 300px; top: -100px; right: -100px; animation-delay: 0s; }
+.bola-v2 { width: 150px; top: 150px; right: 30px; animation-delay: 2s; }
+.bola-v3 { width: 60px; top: 280px; right: 10px; animation-delay: 4s; }
+.bola-l1 { width: 300px; bottom: -100px; left: -100px; animation-delay: 1s; }
+.bola-l2 { width: 200px; bottom: 150px; left: 20px; animation-delay: 3s; }
+.bola-l3 { width: 60px; bottom: 280px; left: 0px; animation-delay: 5s; }
+
+@keyframes flutuar { 
+  0%, 100% { transform: translateY(0); } 
+  50% { transform: translateY(-20px); } 
 }
 
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.8rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
+.fade { 
+  animation: flutuar 6s ease-in-out infinite, piscar 4s ease-in-out infinite alternate; 
 }
 
-.btn-primary {
-  background-color: #e67e22;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.35);
+@keyframes piscar { 
+  0% { opacity: 1; } 
+  100% { opacity: 0.3; } 
 }
 
-.btn-primary:hover {
-  background-color: #c26c22;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(230, 126, 34, 0.5);
-}
-
-.btn-outline {
-  background-color: transparent;
-  color: #e67e22;
-  border: 2px solid #e67e22;
-}
-
-.btn-outline:hover {
-  background-color: #e67e22;
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-.btn-small {
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-}
-
-/* =========================================================
-   HEADER E NAVEGAÇÃO
-   ========================================================= */
+/* ===== HEADER ===== */
 .header {
-  background-color: rgb(181, 187, 15);
+  background-color: rgba(181, 187, 15, 0.6); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 2rem;
-  gap: 1rem;
-  flex-wrap: wrap;
+  padding: 0.8rem 3rem;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-height: 75px;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
+.logo { 
+  z-index: 2; 
 }
 
-.logo-image {
-  height: 60px;
-  width: auto;
-  transition: transform 0.3s ease;
+.logo-image { 
+  height: 55px; 
+  width: auto; 
+  display: block; 
 }
 
-.logo-image:hover {
-  transform: scale(1.05);
-}
-
+/* ===== MENU DROPDOWN (BOTÕES DE IMAGEM) ===== */
 .nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu-principal {
   display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.nav-button {
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  background-color: #e67e22;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.nav-button:hover {
-  background-color: #c26c22;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.nav-button.active {
-  background-color: #fff;
-  color: #e67e22;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-footer {
-  background-color: rgb(181, 187, 15);
-  color: #fff;
-  text-align: center;
-  padding: 1.2rem;
-  font-size: 0.9rem;
-}
-
-/* =========================================================
-   PÁGINA: INÍCIO (index.html)
-   ========================================================= */
-.hero {
-  background: linear-gradient(135deg, #fff8e1, #fff);
-  padding: 3rem 2rem;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-  margin-bottom: 2.5rem;
-  border-left: 8px solid #e67e22;
-}
-
-.hero-text {
-  font-size: 1.1rem;
-  color: #555;
-  max-width: 700px;
-  margin: 0 auto 1.8rem;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
+  list-style: none;
   gap: 1rem;
+}
+
+.menu-item {
+  position: relative;
+}
+
+/* Configuração base dos botões */
+.botao-nav {
+  display: block; 
+  height: 45px; 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+  transition: transform 0.3s ease; 
+  cursor: pointer; 
+  text-decoration: none;
+}
+
+/* Larguras dos botões */
+.btn-inicio, .btn-faq, .btn-integrantes, .btn-sobre, .btn-contato { width: 130px; }
+.btn-quero-doar { width: 150px; }
+
+/* Imagens normais */
+.btn-inicio { background-image: url('../img/inicio.png'); }
+.btn-faq { background-image: url('../img/faq.png'); }
+.btn-integrantes { background-image: url('../img/integrantes.png'); }
+.btn-sobre { background-image: url('../img/sobre.png'); }
+.btn-contato { background-image: url('../img/contato.png'); }
+.btn-quero-doar { background-image: url('../img/quero-doar.png'); }
+
+/* Imagens Hover (Laranja) */
+.btn-inicio:hover { background-image: url('../img/inicio-laranja.png'); }
+.btn-faq:hover { background-image: url('../img/faq-laranja.png'); }
+.btn-integrantes:hover { background-image: url('../img/integrantes-laranja.png'); }
+.btn-sobre:hover { background-image: url('../img/sobre-laranja.png'); }
+.btn-contato:hover { background-image: url('../img/contato-laranja.png'); }
+.btn-quero-doar:hover { background-image: url('../img/quero-doar-laranja.png'); }
+
+.botao-nav:hover { 
+  transform: scale(1.05); 
+}
+
+/* ===== O DROPDOWN (MENU SUSPENSO) ===== */
+.dropdown {
+  display: none; 
+  position: absolute;
+  top: 100%; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  min-width: 220px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  list-style: none;
+  z-index: 200;
+  margin-top: 10px; /* Espaço para o mouse não fechar sem querer */
+}
+
+/* Quando passa o mouse no <li>, mostra o dropdown */
+.menu-item:hover .dropdown {
+  display: block;
+}
+
+.dropdown li a {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown li a:hover {
+  background-color: #f4f4f4;
+  color: #e67e22;
+}
+
+/* ===== CONTEÚDO PRINCIPAL (HERO, CARDS, NÚMEROS) ===== */
+.main-content {
+  position: relative; 
+  z-index: 10; 
+  width: 90%; 
+  max-width: 1200px; 
+  margin: 2rem auto;
+}
+
+.hero { 
+  text-align: center; 
+  margin: 3rem 0; 
+}
+
+.hero-title { 
+  font-size: 3rem; 
+  color: #e67e22; 
+  margin-bottom: 1rem; 
+}
+
+.hero-title span { 
+  font-weight: 900; 
+}
+
+.hero-text { 
+  font-size: 1.2rem; 
+  color: #555; 
+  max-width: 800px; 
+  margin: 0 auto; 
+  line-height: 1.6; 
+}
+
+/* ===== CARDS REDONDOS ===== */
+.acoes-principais { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 3rem; 
+  margin: 4rem 0; 
+  justify-items: center;
+}
+
+.card-acao { 
+  width: 100%; 
+  max-width: 350px; 
+  aspect-ratio: 1 / 1; 
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  text-decoration: none; 
+  color: #fff; 
+  padding: 2.5rem; 
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+  transition: transform 0.4s ease, box-shadow 0.4s ease; 
+  position: relative; 
+  overflow: hidden;
+}
+
+.card-acao:hover { 
+  transform: translateY(-10px) scale(1.03); 
+  box-shadow: 0 25px 45px rgba(0,0,0,0.3);
+}
+
+.card-doacao { background: linear-gradient(135deg, #e67e22, #d35400); }
+.card-voluntario { background: linear-gradient(135deg, #b5bb0f, #8a8f05); }
+.card-ajuda { background: linear-gradient(135deg, #34495e, #2c3e50); }
+
+.card-content h2 { 
+  font-size: 1.6rem; 
+  margin-bottom: 0.8rem; 
+  line-height: 1.1; 
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.card-content h2 span { 
+  font-size: 2.2rem; 
+  font-weight: 900; 
+  display: block; 
+  margin-top: 5px;
+}
+
+.card-content p { 
+  font-size: 0.9rem; 
+  line-height: 1.4; 
+  opacity: 0.9;
+}
+
+/* ===== NÚMEROS ===== */
+.numeros { 
+  text-align: center; 
+  padding: 4rem 0; 
+}
+
+.section-title { 
+  font-size: 1.2rem; 
+  color: #b5bb0f; 
+  margin-bottom: 3rem; 
+  text-transform: uppercase; 
+  letter-spacing: 2px;
+}
+
+.section-title span { 
+  font-size: 2rem; 
+  display: block; 
+  color: #b5bb0f; 
+}
+
+.numeros-grid { 
+  display: flex; 
+  justify-content: space-around; 
+  flex-wrap: wrap; 
+  gap: 2rem; 
+}
+
+.numero-item { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.numero-icone { 
+  width: 150px; 
+  height: 150px; 
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin-bottom: 1rem; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.numero-icone svg { 
+  width: 60px; 
+  height: 60px; 
+}
+
+.icone-verde { background: linear-gradient(135deg, #b5bb0f, #9aa00c); }
+.icone-laranja { background: linear-gradient(135deg, #e67e22, #d35400); }
+
+.numero-item h3 { 
+  font-size: 2.5rem; 
+  color: #b5bb0f; 
+  font-weight: bold; 
+}
+
+.numero-item p { 
+  font-size: 1rem; 
+  color: #666; 
+}
+
+/* ===== DEPOIMENTO ===== */
+.depoimento-section { 
+  background-color: #b5bb0f; 
+  padding: 4rem 2rem; 
+  border-radius: 20px; 
+  margin: 3rem 0; 
+}
+
+.depoimento-container { 
+  display: flex; 
+  align-items: center; 
+  gap: 3rem; 
+  max-width: 900px; 
+  margin: 0 auto; 
   flex-wrap: wrap;
 }
 
-.sobre {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2.5rem;
+.depoimento-foto { 
+  width: 200px; 
+  height: 200px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  border: 5px solid #fff; 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.sobre h2 {
-  font-size: 1.8rem;
-  color: #f39c12;
-  margin-bottom: 1rem;
-  border-bottom: 3px solid #e67e22;
-  display: inline-block;
-  padding-bottom: 0.3rem;
+.depoimento-texto { 
+  flex: 1; 
+  color: #333; 
 }
 
-.sobre p {
-  margin-bottom: 1rem;
-  color: #444;
-  font-size: 1.05rem;
+.depoimento-texto blockquote { 
+  font-size: 1.3rem; 
+  font-style: italic; 
+  margin-bottom: 1rem; 
+  line-height: 1.5; 
 }
 
-.sobre strong {
-  color: #e67e22;
+.depoimento-texto .autor { 
+  font-size: 1rem; 
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+/* ===== PARCEIROS / MÍDIA ===== */
+.parceiros { 
+  padding: 3rem 0; 
 }
 
-.card {
-  background-color: #fff;
-  padding: 1.8rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border-top: 5px solid #e67e22;
+.parceiros-bloco { 
+  text-align: center; 
+  margin-bottom: 3rem; 
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+.parceiros-bloco .section-title { 
+  color: #e67e22; 
+  margin-bottom: 1.5rem; 
 }
 
-.card h3 {
-  color: #f39c12;
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
+.parceiros-bloco .section-title span { 
+  color: #e67e22; 
 }
 
-.card p {
-  color: #555;
-  font-size: 1rem;
-}
-
-.cta {
-  background: linear-gradient(135deg, #e67e22, #f39c12);
-  color: #fff;
-  padding: 2.5rem 2rem;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(230, 126, 34, 0.3);
-  margin-bottom: 2rem;
-}
-
-.cta h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.cta p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta .btn-primary {
-  background-color: #fff;
-  color: #e67e22;
-}
-
-.cta .btn-primary:hover {
-  background-color: #fff8e1;
-  color: #c26c22;
-}
-
-/* =========================================================
-   PÁGINA: INTEGRANTES (inter.html)
-   ========================================================= */
-.integrantes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.8rem;
-  margin-bottom: 2rem;
-}
-
-.integrante-card {
-  background-color: #fff;
-  border-radius: 16px;
-  padding: 1.8rem 1.2rem;
-  display: flex;
-  flex-direction: column;
+.logos-grid { 
+  display: flex; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+  gap: 3rem; 
   align-items: center;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  border-top: 6px solid #e67e22;
-  transition: all 0.3s ease;
 }
 
-.integrante-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(230, 126, 34, 0.2);
-  border-top-color: #f39c12;
+.logo-placeholder { 
+  font-weight: bold; 
+  color: #999; 
+  font-size: 1.2rem; 
 }
 
-.integrante-foto {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #e67e22;
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+/* ===== FOOTER ===== */
+.footer { 
+  position: relative; 
+  z-index: 10; 
+  background-color: rgba(181, 187, 15, 0.9); 
+  color: #fff; 
+  text-align: center; 
+  padding: 1.5rem; 
+  font-size: 0.9rem; 
+  margin-top: auto; 
 }
 
-.integrante-card:hover .integrante-foto {
-  transform: scale(1.05);
-  border-color: #f39c12;
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1100px) {
+  /* No celular, o menu vira um bloco flexível que quebra linha */
+  .nav {
+    position: relative;
+    left: 0;
+    transform: none;
+    margin-top: 1rem;
+  }
+
+  .menu-principal {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .btn-inicio, .btn-faq, .btn-integrantes, .btn-sobre, .btn-contato, .btn-quero-doar {
+    width: 120px;
+    height: 40px;
+  }
+
+  .dropdown {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
-.integrante-card h2 {
-  font-size: 1.1rem;
-  color: #1a202c;
-  margin-bottom: 1rem;
-  line-height: 1.3;
-}
-
-.integrante-links {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* =========================================================
-   PÁGINA: SOBRE NÓS (sobre.html)
-   ========================================================= */
-.sobre-ong,
-.sobre-projeto,
-.sobre-publico {
-  background-color: #fff;
-  border-radius: 16px;
-  padding: 2rem 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
-}
-
-.sobre-ong h2,
-.sobre-projeto h2,
-.sobre-publico h2 {
-  color: #f39c12;
-  font-size: 1.7rem;
-  margin-bottom: 1rem;
-  border-bottom: 3px solid #e67e22;
-  display: inline-block;
-  padding-bottom: 0.3rem;
-}
-
-.sobre-ong p,
-.sobre-projeto p,
-.sobre-publico p {
-  color: #444;
-  font-size: 1.05rem;
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-.sobre-ong strong,
-.sobre-projeto strong,
-.sobre-publico strong {
-  color: #e67e22;
-}
-
-.projeto-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.3rem;
-  margin-top: 1.5rem;
-}
-
-.projeto-card {
-  background-color: #fff8e1;
-  border-radius: 14px;
-  padding: 1.5rem 1.3rem;
-  border-left: 5px solid #e67e22;
-  transition: all 0.3s ease;
-}
-
-.projeto-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(230, 126, 34, 0.18);
-  background-color: #fff;
-}
-
-.projeto-card h3 {
-  color: #f39c12;
-  font-size: 1.15rem;
-  margin-bottom: 0.6rem;
-}
-
-.projeto-card p {
-  color: #555;
-  font-size: 0.98rem;
-  margin-bottom: 0;
-}
-
-.sobre-publico ul {
-  margin: 1rem 0 1.2rem 1.5rem;
-  color: #444;
-  font-size: 1.05rem;
-}
-
-.sobre-publico ul li {
-  margin-bottom: 0.6rem;
-  line-height: 1.6;
-}
-
-/* =========================================================
-   PÁGINA: FAQ (faq.html)
-   ========================================================= */
-.faq-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.faq-item {
-  background-color: #fff;
-  border-radius: 14px;
-  padding: 1.5rem 1.8rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  border-left: 6px solid #e67e22;
-  transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-  transform: translateX(4px);
-  box-shadow: 0 8px 22px rgba(230, 126, 34, 0.15);
-  border-left-color: #f39c12;
-}
-
-.faq-item h3 {
-  color: #f39c12;
-  font-size: 1.2rem;
-  margin-bottom: 0.7rem;
-  font-weight: 700;
-}
-
-.faq-item p {
-  color: #444;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 0.4rem;
-}
-
-.faq-item ul {
-  margin-top: 0.4rem;
-  padding-left: 1.5rem;
-  color: #444;
-  font-size: 1rem;
-}
-
-.faq-item ul li {
-  margin-bottom: 0.3rem;
-}
-
-.faq-item a {
-  color: #e67e22;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-.faq-item a:hover {
-  border-bottom-color: #e67e22;
-}
-
-.faq-item strong {
-  color: #e67e22;
-}
-.Duvidasfaq{
-  color: #e67e22;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-
-
-
-
-/* =========================================================
-   PÁGINA: CONTATO (contato.html)
-   ========================================================= */
-.contato-canais {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.canal-card {
-  background-color: #fff;
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  border-top: 5px solid #e67e22;
-  transition: all 0.3s ease;
-}
-
-.canal-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-}
-
-.canal-card h3 {
-  color: #f39c12;
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
-}
-
-.canal-card p {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.5;
+@media (max-width: 600px) {
+  .hero-title { font-size: 2rem; }
+  .card-acao { padding: 1.5rem; max-width: 280px;}
+  .card-content h2 { font-size: 1.4rem; }
+  .card-content h2 span { font-size: 1.8rem; }
+  .card-content p { font-size: 0.8rem; }
 }
