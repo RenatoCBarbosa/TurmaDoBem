@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <div id="cursor-bolinha"></div>
 
-  <!-- BOLAS DE FUNDO -->
   <div class="decoracao-fundo">
     <img src="img/bola-verde.png" alt="" class="bola bola-v1">
     <img src="img/bola-verde.png" alt="" class="bola bola-v2 fade">
@@ -18,17 +18,14 @@
     <img src="img/bola-laranja.png" alt="" class="bola bola-l3">
   </div>
 
-  <!-- HEADER -->
   <header class="header">
     <a href="index.html" class="logo">
       <img src="img/logo-turma-do-bem.png" alt="Logo" class="logo-image" />
     </a>
 
-    <!-- MENU DROPDOWN -->
-    <nav class="nav">
+    <nav class="nav" id="nav-menu">
       <ul class="menu-principal">
         
-        <!-- Item Início -->
         <li class="menu-item">
           <a href="index.html" class="botao-nav btn-inicio" aria-label="Início"></a>
           <ul class="dropdown">
@@ -37,7 +34,6 @@
           </ul>
         </li>
 
-        <!-- Item FAQ -->
         <li class="menu-item">
           <a href="faq.html" class="botao-nav btn-faq" aria-label="FAQ"></a>
           <ul class="dropdown">
@@ -46,7 +42,6 @@
           </ul>
         </li>
 
-        <!-- Item Integrantes -->
         <li class="menu-item">
           <a href="inter.html" class="botao-nav btn-integrantes" aria-label="Integrantes"></a>
           <ul class="dropdown">
@@ -55,7 +50,6 @@
           </ul>
         </li>
 
-        <!-- Item Sobre -->
         <li class="menu-item">
           <a href="sobre.html" class="botao-nav btn-sobre" aria-label="Sobre Nós"></a>
           <ul class="dropdown">
@@ -64,7 +58,6 @@
           </ul>
         </li>
 
-        <!-- Item Contato -->
         <li class="menu-item">
           <a href="contato.html" class="botao-nav btn-contato" aria-label="Contato"></a>
           <ul class="dropdown">
@@ -72,7 +65,6 @@
           </ul>
         </li>
 
-        <!-- Item Quero Doar (Novo) -->
         <li class="menu-item">
           <a href="https://paybox.doare.org/paybox?payboxId=83fed202-df0f-4665-9c74-688a834028d4" target="_blank" class="botao-nav btn-quero-doar" aria-label="Quero Doar"></a>
         </li>
@@ -81,8 +73,6 @@
     </nav>
   </header>
 
-
-  <!-- CONTEÚDO PRINCIPAL -->
   <main class="main-content">
     
     <section class="hero">
@@ -92,7 +82,6 @@
       </p>
     </section>
 
-    <!-- 3 BOTÕES GRANDES -->
     <section class="acoes-principais">
       <a href="doac.html" class="card-acao card-doacao">
         <div class="card-content">
@@ -116,7 +105,6 @@
       </a>
     </section>
 
-    <!-- NÚMEROS -->
     <section class="numeros">
       <h2 class="section-title"><span>TURMA DO BEM</span><br>EM NÚMEROS</h2>
       <div class="numeros-grid">
@@ -144,20 +132,33 @@
       </div>
     </section>
 
-    <!-- DEPOIMENTO -->
-    <section class="depoimento-section">
-      <div class="depoimento-container">
-        <img src="img/pedro-beneficiario-turma-do-bem-1.jpg" alt="Pedro Gabriel" class="depoimento-foto" onerror="this.src='https://via.placeholder.com/300x300?text=Foto'">
-        <div class="depoimento-texto">
-          <blockquote>
-            "Eu sentia vergonha de sair e ir à escola, pois precisaria conversar com as pessoas e sorrir. Hoje, converso com os outros sem receios. Graças a eles, sou uma pessoa mais alegre. Sou grato, de coração, por isso."
-          </blockquote>
-          <p class="autor"><strong>Pedro Gabriel Lopes</strong>, beneficiário da Turma do Bem</p>
+    <section class="carrossel-section">
+      <h2 class="section-title"><span>HISTÓRIAS</span><br>DE SUCESSO</h2>
+      
+      <div class="carrossel-container">
+        <div class="carrossel-slide active">
+          <img src="img/pedro-beneficiario-turma-do-bem-1.jpg" alt="Pedro Gabriel" class="slide-foto" onerror="this.src='https://via.placeholder.com/150?text=Foto'">
+          <h3>Pedro Gabriel Lopes</h3>
+          <p>"Eu sentia vergonha de sair e ir à escola, pois precisaria conversar com as pessoas e sorrir. Hoje, converso com os outros sem receios. Graças a eles, sou uma pessoa mais alegre. Sou grato, de coração, por isso."</p>
         </div>
+        
+        <div class="carrossel-slide">
+          <img src="img/logo-turma-do-bem.png" alt="Dr. Roberto" class="slide-foto" style="object-fit: contain; padding: 15px;">
+          <h3>Dr. Roberto (Voluntário)</h3>
+          <p>"Fazer parte da TdB mudou a minha forma de ver a odontologia. O sorriso deles é a minha maior recompensa e o meu combustível para continuar ajudando."</p>
+        </div>
+
+        <div class="carrossel-slide">
+          <img src="img/bola-laranja.png" alt="Maria Clara" class="slide-foto" style="object-fit: contain; padding: 20px;">
+          <h3>Maria Clara (Beneficiária)</h3>
+          <p>"O tratamento que recebi devolveu não só o meu sorriso, mas a minha autoestima. Hoje me sinto confiante para procurar um emprego e conversar com as pessoas."</p>
+        </div>
+
+        <button class="carrossel-btn prev" onclick="mudaSlide(-1)">&#10094;</button>
+        <button class="carrossel-btn next" onclick="mudaSlide(1)">&#10095;</button>
       </div>
     </section>
 
-    <!-- SEÇÃO DE MÍDIA (Onde a ONG apareceu) -->
     <section class="parceiros" id="midia">
       <div class="parceiros-bloco">
         <h2 class="section-title"><span>TDB</span><br>NA MÍDIA</h2>

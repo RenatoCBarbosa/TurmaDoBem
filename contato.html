@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/contato.css" />
   </head>
   <body>
+    <div id="cursor-bolinha"></div>
 
     <div class="decoracao-fundo">
       <img src="img/bola-verde.png" alt="" class="bola bola-v1">
@@ -22,18 +23,46 @@
         <img src="img/logo-turma-do-bem.png" alt="Logo" class="logo-image" />
       </a>
 
-      <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-
-      <nav class="nav" id="nav-menu">
-        <a href="index.html" class="botao-nav btn-inicio" aria-label="Início"></a>
-        <a href="faq.html" class="botao-nav btn-faq" aria-label="FAQ"></a>
-        <a href="inter.html" class="botao-nav btn-integrantes" aria-label="Integrantes"></a>
-        <a href="sobre.html" class="botao-nav btn-sobre" aria-label="Sobre Nós"></a>
-        <a href="contato.html" class="botao-nav btn-contato" aria-label="Contato"></a>
+      <nav class="nav">
+        <ul class="menu-principal">
+          <li class="menu-item">
+            <a href="index.html" class="botao-nav btn-inicio" aria-label="Início"></a>
+            <ul class="dropdown">
+              <li><a href="doac.html">Doação</a></li>
+              <li><a href="index.html#midia">Onde a TdB apareceu</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="faq.html" class="botao-nav btn-faq" aria-label="FAQ"></a>
+            <ul class="dropdown">
+              <li><a href="faq.html">Dúvidas Frequentes</a></li>
+              <li><a href="contato.html">Tire sua Dúvida</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="inter.html" class="botao-nav btn-integrantes" aria-label="Integrantes"></a>
+            <ul class="dropdown">
+              <li><a href="inter.html">Conheça a Equipe</a></li>
+              <li><a href="sobre.html">Ferramentas que Usamos</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="sobre.html" class="botao-nav btn-sobre" aria-label="Sobre Nós"></a>
+            <ul class="dropdown">
+              <li><a href="sobre.html">A ONG</a></li>
+              <li><a href="sobre.html#projeto">Nosso Projeto</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="contato.html" class="botao-nav btn-contato" aria-label="Contato"></a>
+            <ul class="dropdown">
+              <li><a href="contato.html">Fale Conosco</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="https://paybox.doare.org/paybox?payboxId=83fed202-df0f-4665-9c74-688a834028d4" target="_blank" class="botao-nav btn-quero-doar" aria-label="Quero Doar"></a>
+          </li>
+        </ul>
       </nav>
     </header>
 
@@ -50,14 +79,17 @@
           <h3>E-mail</h3>
           <p>contato@turmadobem.org.br</p>
         </div>
+
         <div class="canal-card">
           <h3>Telefone</h3>
           <p>(11) 5084-5118</p>
         </div>
+
         <div class="canal-card">
           <h3>WhatsApp</h3>
           <p>(11) 99999-9999</p>
         </div>
+
         <div class="canal-card">
           <h3>Endereço</h3>
           <p>Rua Tupi, 123 – Pacaembu<br />São Paulo – SP</p>
@@ -92,9 +124,9 @@
     </main>
 
     <footer class="footer">
-      <p>Feito pela equipe Bem Coletivo.</p>
+      <p>Feito pela equipe Bem Coletivo &copy; 2026</p>
     </footer>
 
-    <script src="Js/script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

@@ -14,7 +14,20 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== BOLAS DE FUNDO ANIMADAS ===== */
+#cursor-bolinha {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(168, 90, 2, 0.5);
+  border-radius: 50%;
+  pointer-events: none; 
+  z-index: 5; 
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
 .decoracao-fundo { 
   position: fixed; 
   inset: 0; 
@@ -47,12 +60,10 @@ body {
   0% { opacity: 1; } 
   100% { opacity: 0.3; } 
 }
-
-/* ===== HEADER ===== */
 .header {
-  background-color: rgba(181, 187, 15, 0.6); 
-  backdrop-filter: blur(10px); 
-  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(245, 245, 245, 0.75); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,7 +71,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid rgba(181, 187, 15, 0.8);
   min-height: 75px;
 }
 
@@ -74,7 +86,6 @@ body {
   display: block; 
 }
 
-/* ===== MENU DROPDOWN (BOTÕES DE IMAGEM) ===== */
 .nav {
   position: absolute;
   left: 50%;
@@ -91,7 +102,6 @@ body {
   position: relative;
 }
 
-/* Configuração base dos botões */
 .botao-nav {
   display: block; 
   height: 45px; 
@@ -103,11 +113,9 @@ body {
   text-decoration: none;
 }
 
-/* Larguras dos botões */
 .btn-inicio, .btn-faq, .btn-integrantes, .btn-sobre, .btn-contato { width: 130px; }
 .btn-quero-doar { width: 150px; }
 
-/* Imagens normais */
 .btn-inicio { background-image: url('../img/inicio.png'); }
 .btn-faq { background-image: url('../img/faq.png'); }
 .btn-integrantes { background-image: url('../img/integrantes.png'); }
@@ -115,7 +123,6 @@ body {
 .btn-contato { background-image: url('../img/contato.png'); }
 .btn-quero-doar { background-image: url('../img/quero-doar.png'); }
 
-/* Imagens Hover (Laranja) */
 .btn-inicio:hover { background-image: url('../img/inicio-laranja.png'); }
 .btn-faq:hover { background-image: url('../img/faq-laranja.png'); }
 .btn-integrantes:hover { background-image: url('../img/integrantes-laranja.png'); }
@@ -123,11 +130,8 @@ body {
 .btn-contato:hover { background-image: url('../img/contato-laranja.png'); }
 .btn-quero-doar:hover { background-image: url('../img/quero-doar-laranja.png'); }
 
-.botao-nav:hover { 
-  transform: scale(1.05); 
-}
+.botao-nav:hover { transform: scale(1.05); }
 
-/* ===== O DROPDOWN (MENU SUSPENSO) ===== */
 .dropdown {
   display: none; 
   position: absolute;
@@ -141,12 +145,24 @@ body {
   padding: 0.5rem 0;
   list-style: none;
   z-index: 200;
-  margin-top: 10px; /* Espaço para o mouse não fechar sem querer */
 }
 
-/* Quando passa o mouse no <li>, mostra o dropdown */
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -15px; 
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background-color: transparent; 
+}
+
 .menu-item:hover .dropdown {
   display: block;
+}
+
+.dropdown li:first-child {
+  margin-top: 10px;
 }
 
 .dropdown li a {
@@ -164,7 +180,6 @@ body {
   color: #e67e22;
 }
 
-/* ===== CONTEÚDO PRINCIPAL (HERO, CARDS, NÚMEROS) ===== */
 .main-content {
   position: relative; 
   z-index: 10; 
@@ -173,10 +188,7 @@ body {
   margin: 2rem auto;
 }
 
-.hero { 
-  text-align: center; 
-  margin: 3rem 0; 
-}
+.hero { text-align: center; margin: 3rem 0; }
 
 .hero-title { 
   font-size: 3rem; 
@@ -184,9 +196,7 @@ body {
   margin-bottom: 1rem; 
 }
 
-.hero-title span { 
-  font-weight: 900; 
-}
+.hero-title span { font-weight: 900; }
 
 .hero-text { 
   font-size: 1.2rem; 
@@ -196,7 +206,6 @@ body {
   line-height: 1.6; 
 }
 
-/* ===== CARDS REDONDOS ===== */
 .acoes-principais { 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -252,11 +261,7 @@ body {
   opacity: 0.9;
 }
 
-/* ===== NÚMEROS ===== */
-.numeros { 
-  text-align: center; 
-  padding: 4rem 0; 
-}
+.numeros { text-align: center; padding: 4rem 0; }
 
 .section-title { 
   font-size: 1.2rem; 
@@ -279,11 +284,7 @@ body {
   gap: 2rem; 
 }
 
-.numero-item { 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-}
+.numero-item { display: flex; flex-direction: column; align-items: center; }
 
 .numero-icone { 
   width: 150px; 
@@ -296,26 +297,13 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.numero-icone svg { 
-  width: 60px; 
-  height: 60px; 
-}
-
+.numero-icone svg { width: 60px; height: 60px; }
 .icone-verde { background: linear-gradient(135deg, #b5bb0f, #9aa00c); }
 .icone-laranja { background: linear-gradient(135deg, #e67e22, #d35400); }
 
-.numero-item h3 { 
-  font-size: 2.5rem; 
-  color: #b5bb0f; 
-  font-weight: bold; 
-}
+.numero-item h3 { font-size: 2.5rem; color: #b5bb0f; font-weight: bold; }
+.numero-item p { font-size: 1rem; color: #666; }
 
-.numero-item p { 
-  font-size: 1rem; 
-  color: #666; 
-}
-
-/* ===== DEPOIMENTO ===== */
 .depoimento-section { 
   background-color: #b5bb0f; 
   padding: 4rem 2rem; 
@@ -341,10 +329,7 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.depoimento-texto { 
-  flex: 1; 
-  color: #333; 
-}
+.depoimento-texto { flex: 1; color: #333; }
 
 .depoimento-texto blockquote { 
   font-size: 1.3rem; 
@@ -353,28 +338,17 @@ body {
   line-height: 1.5; 
 }
 
-.depoimento-texto .autor { 
-  font-size: 1rem; 
-}
+.depoimento-texto .autor { font-size: 1rem; }
 
-/* ===== PARCEIROS / MÍDIA ===== */
-.parceiros { 
-  padding: 3rem 0; 
-}
-
-.parceiros-bloco { 
-  text-align: center; 
-  margin-bottom: 3rem; 
-}
+.parceiros { padding: 3rem 0; }
+.parceiros-bloco { text-align: center; margin-bottom: 3rem; }
 
 .parceiros-bloco .section-title { 
   color: #e67e22; 
   margin-bottom: 1.5rem; 
 }
 
-.parceiros-bloco .section-title span { 
-  color: #e67e22; 
-}
+.parceiros-bloco .section-title span { color: #e67e22; }
 
 .logos-grid { 
   display: flex; 
@@ -390,7 +364,6 @@ body {
   font-size: 1.2rem; 
 }
 
-/* ===== FOOTER ===== */
 .footer { 
   position: relative; 
   z-index: 10; 
@@ -402,9 +375,105 @@ body {
   margin-top: auto; 
 }
 
-/* ===== RESPONSIVO ===== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f4f4; 
+}
+::-webkit-scrollbar-thumb {
+  background: #b5bb0f; 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e67e22; 
+}
+
+.carrossel-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 3rem 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.carrossel-container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 50px; /* Espaço para as setas não cobrirem o texto */
+}
+
+.carrossel-slide {
+  display: none; /* Esconde todos os slides */
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Quando o JS ativa, ele mostra o slide */
+.carrossel-slide.active {
+  display: flex; 
+}
+
+.slide-foto {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e67e22;
+  margin-bottom: 1.2rem;
+  background-color: #f4f4f4; /* Fundo cinza caso a imagem tenha transparência */
+}
+
+.carrossel-slide h3 {
+  color: #e67e22;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.carrossel-slide p {
+  font-size: 1.05rem;
+  color: #444;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+/* Botões das Setas */
+.carrossel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(181, 187, 15, 0.8);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.3s;
+  z-index: 10;
+}
+
+.carrossel-btn:hover {
+  background-color: #e67e22;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+/* Animação suave ao trocar de slide */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 @media (max-width: 1100px) {
-  /* No celular, o menu vira um bloco flexível que quebra linha */
   .nav {
     position: relative;
     left: 0;
@@ -435,7 +504,7 @@ body {
 
 @media (max-width: 600px) {
   .hero-title { font-size: 2rem; }
-  .card-acao { padding: 1.5rem; max-width: 280px;}
+  .card-acao { padding: 1.5rem; max-width: 280px; }
   .card-content h2 { font-size: 1.4rem; }
   .card-content h2 span { font-size: 1.8rem; }
   .card-content p { font-size: 0.8rem; }

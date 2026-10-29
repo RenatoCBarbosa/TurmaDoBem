@@ -7,38 +7,65 @@
     <link rel="stylesheet" href="css/sobre.css" />
   </head>
   <body>
+    <div id="cursor-bolinha"></div>
 
-    <!-- BOLAS DE FUNDO -->
     <div class="decoracao-fundo">
       <img src="img/bola-verde.png" alt="" class="bola bola-v1">
       <img src="img/bola-verde.png" alt="" class="bola bola-v2 fade">
       <img src="img/bola-verde.png" alt="" class="bola bola-v3">
-  
       <img src="img/bola-laranja.png" alt="" class="bola bola-l1">
       <img src="img/bola-laranja.png" alt="" class="bola bola-l2 fade">
       <img src="img/bola-laranja.png" alt="" class="bola bola-l3">
     </div>
 
-    <!-- HEADER -->
     <header class="header">
       <a href="index.html" class="logo">
-        <img
-          src="img/logo-turma-do-bem.png"
-          alt="Logo da Turma do Bem"
-          class="logo-image"
-        />
+        <img src="img/logo-turma-do-bem.png" alt="Logo" class="logo-image" />
       </a>
 
       <nav class="nav">
-        <a href="index.html" class="botao-nav btn-inicio" aria-label="Início"></a>
-        <a href="faq.html" class="botao-nav btn-faq" aria-label="FAQ"></a>
-        <a href="inter.html" class="botao-nav btn-integrantes" aria-label="Integrantes"></a>
-        <a href="sobre.html" class="botao-nav btn-sobre" aria-label="Sobre Nós"></a>
-        <a href="contato.html" class="botao-nav btn-contato" aria-label="Contato"></a>
+        <ul class="menu-principal">
+          <li class="menu-item">
+            <a href="index.html" class="botao-nav btn-inicio" aria-label="Início"></a>
+            <ul class="dropdown">
+              <li><a href="doac.html">Doação</a></li>
+              <li><a href="index.html#midia">Onde a TdB apareceu</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="faq.html" class="botao-nav btn-faq" aria-label="FAQ"></a>
+            <ul class="dropdown">
+              <li><a href="faq.html">Dúvidas Frequentes</a></li>
+              <li><a href="contato.html">Tire sua Dúvida</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="inter.html" class="botao-nav btn-integrantes" aria-label="Integrantes"></a>
+            <ul class="dropdown">
+              <li><a href="inter.html">Conheça a Equipe</a></li>
+              <li><a href="sobre.html">Ferramentas que Usamos</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="sobre.html" class="botao-nav btn-sobre" aria-label="Sobre Nós"></a>
+            <ul class="dropdown">
+              <li><a href="sobre.html">A ONG</a></li>
+              <li><a href="sobre.html#projeto">Nosso Projeto</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="contato.html" class="botao-nav btn-contato" aria-label="Contato"></a>
+            <ul class="dropdown">
+              <li><a href="contato.html">Fale Conosco</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="https://paybox.doare.org/paybox?payboxId=83fed202-df0f-4665-9c74-688a834028d4" target="_blank" class="botao-nav btn-quero-doar" aria-label="Quero Doar"></a>
+          </li>
+        </ul>
       </nav>
     </header>
 
-    <!-- CONTEÚDO -->
     <main class="main-content">
       <section class="page-header">
         <h1 class="page-title">Sobre <span>Nós</span></h1>
@@ -48,101 +75,116 @@
         </p>
       </section>
 
-      <section class="sobre-ong">
-        <h2>A Turma do Bem</h2>
-        <p>
-          A <strong>Turma do Bem</strong> é uma organização sem fins
-          lucrativos que conecta dentistas voluntários a pessoas em situação
-          de vulnerabilidade social, oferecendo atendimento odontológico
-          gratuito e digno. O trabalho da ONG é sustentado por uma rede de
-          colaboradores, parceiros e profissionais que acreditam no poder da
-          solidariedade.
-        </p>
-        <p>
-          Com o crescimento das ações, a quantidade de informações
-          gerenciadas — sobre colaboradores, dentistas voluntários e
-          atendimentos realizados — também aumentou. Foi aí que surgiu a
-          necessidade do nosso projeto.
-        </p>
+      <div class="tabs-container">
+        <button class="tab-btn active" onclick="openTab(event, 'aba-ong')">A ONG</button>
+        <button class="tab-btn" onclick="openTab(event, 'aba-projeto')">Nosso Projeto</button>
+        <button class="tab-btn" onclick="openTab(event, 'aba-publico')">Público</button>
+      </div>
+
+      <section id="aba-ong" class="tab-content active">
+        <div class="sobre-ong">
+          <h2>A Turma do Bem</h2>
+          <p>
+            A <strong>Turma do Bem</strong> é uma organização sem fins
+            lucrativos que conecta dentistas voluntários a pessoas em situação
+            de vulnerabilidade social, oferecendo atendimento odontológico
+            gratuito e digno. O trabalho da ONG é sustentado por uma rede de
+            colaboradores, parceiros e profissionais que acreditam no poder da
+            solidariedade.
+          </p>
+          <p>
+            Com o crescimento das ações, a quantidade de informações
+            gerenciadas — sobre colaboradores, dentistas voluntários e
+            atendimentos realizados — também aumentou. Foi aí que surgiu a
+            necessidade do nosso projeto.
+          </p>
+        </div>
       </section>
 
-      <section class="sobre-projeto">
-        <h2>Nosso Projeto</h2>
-        <p>
-          Nosso projeto tem como objetivo <strong>organizar e centralizar as
-          informações da Turma do Bem</strong>, tornando o acesso mais simples,
-          rápido e seguro tanto para a equipe interna quanto para os
-          dentistas voluntários. Queremos que a ONG tenha uma ferramenta
-          confiável para gerenciar seus dados e, ao mesmo tempo, oferecer uma
-          experiência agradável a quem deseja ajudar.
-        </p>
+      <section id="aba-projeto" class="tab-content">
+        <div class="sobre-projeto">
+          <h2>Nosso Projeto</h2>
+          <p>
+            Nosso projeto tem como objetivo <strong>organizar e centralizar as
+            informações da Turma do Bem</strong>, tornando o acesso mais simples,
+            rápido e seguro tanto para a equipe interna quanto para os
+            dentistas voluntários. Queremos que a ONG tenha uma ferramenta
+            confiável para gerenciar seus dados e, ao mesmo tempo, oferecer uma
+            experiência agradável a quem deseja ajudar.
+          </p>
 
-        <div class="projeto-cards">
-          <div class="projeto-card">
-            <h3>Organização de Dados</h3>
-            <p>
-              Estruturamos as informações sobre colaboradores e dentistas
-              voluntários em um só lugar, facilitando consultas, atualizações
-              e o dia a dia da ONG.
-            </p>
-          </div>
+          <div class="projeto-cards">
+            <div class="projeto-card">
+              <h3>Organização de Dados</h3>
+              <p>
+                Estruturamos as informações sobre colaboradores e dentistas
+                voluntários em um só lugar, facilitando consultas, atualizações
+                e o dia a dia da ONG.
+              </p>
+            </div>
 
-          <div class="projeto-card">
-            <h3>Inscrição de Dentistas</h3>
-            <p>
-              Criamos um caminho mais simples para que novos dentistas se
-              inscrevam como voluntários, com um processo claro e sem
-              burocracia.
-            </p>
-          </div>
+            <div class="projeto-card">
+              <h3>Inscrição de Dentistas</h3>
+              <p>
+                Criamos um caminho mais simples para que novos dentistas se
+                inscrevam como voluntários, com um processo claro e sem
+                burocracia.
+              </p>
+            </div>
 
-          <div class="projeto-card">
-            <h3>Informações Transparentes</h3>
-            <p>
-              Dentistas e demais interessados podem acompanhar informações
-              gerais da ONG, como o quanto ela arrecada e como os recursos são
-              utilizados.
-            </p>
-          </div>
+            <div class="projeto-card">
+              <h3>Informações Transparentes</h3>
+              <p>
+                Dentistas e demais interessados podem acompanhar informações
+                gerais da ONG, como o quanto ela arrecada e como os recursos são
+                utilizados.
+              </p>
+            </div>
 
-          <div class="projeto-card">
-            <h3>Segurança e Privacidade</h3>
-            <p>
-              Dados pessoais são acessíveis apenas por membros da ONG.
-              Dentistas e pessoas atendidas (visitantes externos) têm acesso
-              somente às informações públicas.
-            </p>
+            <div class="projeto-card">
+              <h3>Segurança e Privacidade</h3>
+              <p>
+                Dados pessoais são acessíveis apenas por membros da ONG.
+                Dentistas e pessoas atendidas (visitantes externos) têm acesso
+                somente às informações públicas.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="sobre-publico">
-        <h2>Para Quem é o Projeto</h2>
-        <p>
-          O projeto foi pensado para dois públicos principais, com níveis de
-          acesso diferentes:
-        </p>
-        <ul>
-          <li>
-            <strong>Equipe interna (ONG):</strong> acesso completo, incluindo
-            informações pessoais de colaboradores e dentistas.
-          </li>
-          <li>
-            <strong>Visitantes externos (dentistas voluntários e pessoas
-            atendidas):</strong> acesso restrito a informações não pessoais,
-            como dados gerais sobre o funcionamento e as finanças da ONG.
-          </li>
-        </ul>
-        <p>
-          Dessa forma, garantimos a privacidade de quem faz parte da ONG e, ao
-          mesmo tempo, mantemos a transparência com o público externo.
-        </p>
+      <!-- CONTEÚDO DA ABA 3: PÚBLICO -->
+      <section id="aba-publico" class="tab-content">
+        <div class="sobre-publico">
+          <h2>Para Quem é o Projeto</h2>
+          <p>
+            O projeto foi pensado para dois públicos principais, com níveis de
+            acesso diferentes:
+          </p>
+          <ul>
+            <li>
+              <strong>Equipe interna (ONG):</strong> acesso completo, incluindo
+              informações pessoais de colaboradores e dentistas.
+            </li>
+            <li>
+              <strong>Visitantes externos (dentistas voluntários e pessoas
+              atendidas):</strong> acesso restrito a informações não pessoais,
+              como dados gerais sobre o funcionamento e as finanças da ONG.
+            </li>
+          </ul>
+          <p>
+            Dessa forma, garantimos a privacidade de quem faz parte da ONG e, ao
+            mesmo tempo, mantemos a transparência com o público externo.
+          </p>
+        </div>
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
-      <p>Feito pela equipe Bem Coletivo.</p>
+      <p>Feito pela equipe Bem Coletivo &copy; 2026</p>
     </footer>
+
+    <!-- IMPORTANDO O JAVASCRIPT (PARA A BOLINHA E AS ABAS FUNCIONAREM) -->
+    <script src="js/script.js"></script>
   </body>
 </html>

@@ -1,56 +1,131 @@
 document.addEventListener("DOMContentLoaded", () => {
   
-  const mobileMenu = document.getElementById("mobile-menu");
-  const navMenu = document.getElementById("nav-menu");
+  // ==========================================
+  // 1. BOLINHA QUE SEGUE O MOUSE
+  // ==========================================
+  const bolinha = document.getElementById("cursor-bolinha");
+  if (bolinha) {
+    let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+    let bolinhaX = mouseX, bolinhaY = mouseY;
+    const velocidade = 0.15;
 
-  if (mobileMenu) {
-    mobileMenu.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
     });
+
+    function animarBolinha() {
+      bolinhaX += (mouseX - bolinhaX) * velocidade;
+      bolinhaY += (mouseY - bolinhaY) * velocidade;
+      bolinha.style.transform = `translate(${bolinhaX}px, ${bolinhaY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animarBolinha);
+    }
+    animarBolinha();
   }
 
-  const form = document.getElementById("form-contato");
-  
-  if (form) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault(); 
+  // ==========================================
+  // 2. CARROSSEL (PÁGINA INÍCIO)
+  // ==========================================
+  const slides = document.querySelectorAll(".carrossel-slide");
+  if (slides.length > 0) {
+    let slideIndex = 0;
+    let carrosselTimer;
+
+    // Função global para os botões HTML "onclick" acharem
+    window.mudaSlide = function(n) {
+      slideIndex += n;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
       
-      let isValid = true;
+      slides.forEach(slide => slide.classList.remove("active"));
+      slides[slideIndex].classList.add("active");
+      
+      clearInterval(carrosselTimer);
+      carrosselTimer = setInterval(autoSlide, 4000);
+    };
 
-      const nome = document.getElementById("nome");
-      const email = document.getElementById("email");
-      const mensagem = document.getElementById("mensagem");
+    function autoSlide() {
+      slideIndex++;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      slides.forEach(slide => slide.classList.remove("active"));
+      slides[slideIndex].classList.add("active");
+    }
 
-      document.querySelectorAll(".form-group").forEach(group => group.classList.remove("error"));
-
-      if (nome.value.trim().length < 3) {
-        showError(nome, "O nome precisa ter pelo menos 3 caracteres.");
-        isValid = false;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email.value.trim())) {
-        showError(email, "Digite um e-mail válido (exemplo@dominio.com).");
-        isValid = false;
-      }
-
-      if (mensagem.value.trim() === "") {
-        showError(mensagem, "A mensagem não pode ficar em branco.");
-        isValid = false;
-      }
-
-      if (isValid) {
-        alert("Mensagem enviada com sucesso! Obrigado pelo contato.");
-        form.reset();
-      }
-    });
+    // Inicia o timer automático
+    carrosselTimer = setInterval(autoSlide, 4000);
   }
 
-  function showError(input, message) {
-    const formGroup = input.parentElement; // Pega a div .form-group
-    const errorMsg = formGroup.querySelector(".error-msg");
-    
-    formGroup.classList.add("error"); // Adiciona a borda vermelha
-    errorMsg.textContent = message;   // Adiciona a mensagem de erro
-  }
 });
+
+// ==========================================
+// 3. ABAS (TABS) - PÁGINA SOBRE
+// ==========================================
+// Deixei fora do DOMContentLoaded para o HTML conseguir chamar direto no "onclick"
+function openTab(evt, tabName) {
+  const tabContents = document.querySelectorAll(".tab-content");
+  tabContents.forEach(tab => tab.classList.remove("active"));
+
+  const tabBtns = document.querySelectorAll(".tab-btn");
+  tabBtns.forEach(btn => btn.classList.remove("active"));
+
+  document.getElementById(tabName).classList.add("active");
+  evt.currentTarget.classList.add("active");
+}
+
+// ==========================================
+// 4. MODAL - PÁGINA FAQ
+// ==========================================
+// Deixei fora do DOMContentLoaded para o HTML conseguir chamar direto no "onclick"
+function abrirModal(texto) {
+  const modalTexto = document.getElementById("modal-texto");
+  const modal = document.getElementById("meuModal");
+  
+  if (modalTexto && modal) {
+    modalTexto.innerText = texto;
+    modal.style.display = "block";
+  }
+}
+
+function fecharModal() {
+  const modal = document.getElementById("meuModal");
+  if (modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Fecha o modal se o usuário clicar fora dele
+window.onclick = function(event) {
+  const modal = document.getElementById("meuModal");
+  if (modal && event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+ const slides = document.querySelectorAll(".carrossel-slide");
+  if (slides.length > 0) {
+    let slideIndex = 0;
+    let carrosselTimer;
+
+    // Função global para os botões HTML "onclick" acharem
+    window.mudaSlide = function(n) {
+      slideIndex += n;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      
+      slides.forEach(slide => slide.classList.remove("active"));
+      slides[slideIndex].classList.add("active");
+      
+      clearInterval(carrosselTimer);
+      carrosselTimer = setInterval(autoSlide, 4000);
+    };
+
+    function autoSlide() {
+      slideIndex++;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      slides.forEach(slide => slide.classList.remove("active"));
+      slides[slideIndex].classList.add("active");
+    }
+
+    // Inicia o timer automático
+    carrosselTimer = setInterval(autoSlide, 4000);
+  }

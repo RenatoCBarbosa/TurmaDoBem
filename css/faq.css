@@ -1,3 +1,6 @@
+/* ====================================================
+   RESET E BASE
+   ==================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +9,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #e5e5e5; 
+  background-color: #f4f4f4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,10 +17,27 @@ body {
   overflow-x: hidden;
 }
 
+/* ====================================================
+   ANIMAÇÕES E DECORAÇÕES DE FUNDO
+   ==================================================== */
+#cursor-bolinha {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(168, 90, 2, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
 .decoracao-fundo {
   position: fixed;
   inset: 0;
-  pointer-events: none; 
+  pointer-events: none;
   z-index: 0;
 }
 
@@ -26,9 +46,12 @@ body {
   animation: flutuar 6s ease-in-out infinite;
 }
 
+/* Posicionamento das Bolas Verdes */
 .bola-v1 { width: 300px; top: -100px; right: -100px; animation-delay: 0s; }
 .bola-v2 { width: 150px; top: 150px; right: 30px; animation-delay: 2s; }
 .bola-v3 { width: 60px; top: 280px; right: 10px; animation-delay: 4s; }
+
+/* Posicionamento das Bolas Laranjas */
 .bola-l1 { width: 300px; bottom: -100px; left: -100px; animation-delay: 1s; }
 .bola-l2 { width: 200px; bottom: 150px; left: 20px; animation-delay: 3s; }
 .bola-l3 { width: 60px; bottom: 280px; left: 0px; animation-delay: 5s; }
@@ -47,10 +70,13 @@ body {
   100% { opacity: 0.3; }
 }
 
+/* ====================================================
+   HEADER E NAVEGAÇÃO
+   ==================================================== */
 .header {
-  background-color: rgba(181, 187, 15, 0.6); 
-  backdrop-filter: blur(10px); 
-  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(245, 245, 245, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,33 +84,35 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid rgba(181, 187, 15, 0.8);
   min-height: 75px;
 }
 
-.logo {
-  z-index: 2;
-}
-
-.logo-image {
-  height: 55px;
-  width: auto;
-  display: block;
-}
+.logo { z-index: 2; }
+.logo-image { height: 55px; width: auto; display: block; }
 
 .nav {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.menu-principal {
   display: flex;
-  align-items: center;
+  list-style: none;
   gap: 1rem;
 }
 
+.menu-item {
+  position: relative;
+}
+
+/* Botões do Menu (Imagens) */
 .botao-nav {
   display: block;
-  height: 45px; 
-  background-size: contain; 
+  height: 45px;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   transition: transform 0.3s ease;
@@ -92,35 +120,93 @@ body {
   text-decoration: none;
 }
 
-.btn-inicio { width: 150px; }
-.btn-faq { width: 150px; }
-.btn-integrantes { width: 150px; }
-.btn-sobre { width: 150px; }
-.btn-contato { width: 150px; }
+.btn-inicio, .btn-faq, .btn-integrantes, .btn-sobre, .btn-contato { width: 130px; }
+.btn-quero-doar { width: 150px; }
 
+/* Imagens Normais */
 .btn-inicio { background-image: url('../img/inicio.png'); }
 .btn-faq { background-image: url('../img/faq.png'); }
 .btn-integrantes { background-image: url('../img/integrantes.png'); }
 .btn-sobre { background-image: url('../img/sobre.png'); }
 .btn-contato { background-image: url('../img/contato.png'); }
+.btn-quero-doar { background-image: url('../img/quero-doar.png'); }
 
+/* Imagens Hover */
 .btn-inicio:hover { background-image: url('../img/inicio-laranja.png'); }
 .btn-faq:hover { background-image: url('../img/faq-laranja.png'); }
 .btn-integrantes:hover { background-image: url('../img/integrantes-laranja.png'); }
 .btn-sobre:hover { background-image: url('../img/sobre-laranja.png'); }
 .btn-contato:hover { background-image: url('../img/contato-laranja.png'); }
+.btn-quero-doar:hover { background-image: url('../img/quero-doar-laranja.png'); }
 
 .botao-nav:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
+/* Dropdown Suspenso */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  min-width: 220px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  list-style: none;
+  z-index: 200;
+}
+
+/* Ponte invisível para não fechar o menu rápido */
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background-color: transparent;
+}
+
+.menu-item:hover .dropdown {
+  display: block;
+}
+
+.dropdown li:first-child {
+  margin-top: 10px;
+}
+
+.dropdown li a {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown li a:hover {
+  background-color: #f4f4f4;
+  color: #e67e22;
+}
+
+/* ====================================================
+   CONTEÚDO PRINCIPAL (FAQ)
+   ==================================================== */
 .main-content {
   position: relative;
   z-index: 10;
   flex: 1;
   width: 90%;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 2rem auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
 }
 
 .page-title {
@@ -136,9 +222,10 @@ body {
 .page-subtitle {
   font-size: 1rem;
   color: #555;
-  margin-bottom: 2rem;
+  margin-top: 0.5rem;
 }
 
+/* Lista de Perguntas */
 .faq-lista {
   display: flex;
   flex-direction: column;
@@ -152,64 +239,137 @@ body {
   padding: 1.5rem 1.8rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   border-left: 6px solid #e67e22;
-  transition: transform 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .faq-item:hover {
-  transform: translateX(5px);
+  transform: translateX(8px);
+  background-color: #fff8e1;
 }
 
 .faq-item h3 {
   color: #e67e22;
   font-size: 1.2rem;
-  margin-bottom: 0.8rem;
   font-weight: bold;
+  margin-bottom: 0;
 }
 
-.faq-item p {
+/* ====================================================
+   O MODAL (JANELA SUSPENSA)
+   ==================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 2rem;
+  border-top: 8px solid #e67e22;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: dropIn 0.4s ease;
+}
+
+@keyframes dropIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #e67e22;
+}
+
+.modal-title {
+  color: #e67e22;
+  margin-bottom: 1rem;
+}
+
+#modal-texto {
   color: #444;
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 0.5rem;
 }
 
-.faq-item ul {
-  margin-top: 0.5rem;
-  padding-left: 1.5rem;
-  color: #444;
-  font-size: 1rem;
-}
-
-.faq-item ul li {
-  margin-bottom: 0.3rem;
-}
-
-.faq-item a {
-  color: #e67e22;
-  font-weight: bold;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-.faq-item a:hover {
-  border-bottom-color: #e67e22;
-}
-
-.faq-item strong {
-  color: #e67e22;
-}
-
+/* ====================================================
+   FOOTER
+   ==================================================== */
 .footer {
   position: relative;
   z-index: 10;
-  background-color: rgba(181, 187, 15, 0.6); 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: #fff; 
+  background-color: rgba(181, 187, 15, 0.9);
+  color: #fff;
   text-align: center;
-  padding: 1.2rem;
+  padding: 1.5rem;
   font-size: 0.9rem;
   margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+/* ====================================================
+   SCROLLBAR CUSTOMIZADA
+   ==================================================== */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f4f4f4; }
+::-webkit-scrollbar-thumb { background: #b5bb0f; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #e67e22; }
+
+/* ====================================================
+   RESPONSIVO
+   ==================================================== */
+@media (max-width: 1100px) {
+  .nav {
+    position: relative;
+    left: 0;
+    transform: none;
+    margin-top: 1rem;
+  }
+
+  .menu-principal {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .btn-inicio, .btn-faq, .btn-integrantes, .btn-sobre, .btn-contato, .btn-quero-doar {
+    width: 120px;
+    height: 40px;
+  }
+
+  .dropdown {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 600px) {
+  .page-title { font-size: 2rem; }
+  .faq-item { padding: 1.2rem; }
+  .faq-item h3 { font-size: 1.1rem; }
+  .modal-content { width: 90%; margin: 30% auto; }
 }

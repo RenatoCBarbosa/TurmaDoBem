@@ -7,17 +7,16 @@
     <link rel="stylesheet" href="css/inter.css" />
   </head>
   <body>
+    <div id="cursor-bolinha"></div>
 
     <div class="decoracao-fundo">
       <img src="img/bola-verde.png" alt="" class="bola bola-v1">
       <img src="img/bola-verde.png" alt="" class="bola bola-v2 fade">
       <img src="img/bola-verde.png" alt="" class="bola bola-v3">
-  
       <img src="img/bola-laranja.png" alt="" class="bola bola-l1">
       <img src="img/bola-laranja.png" alt="" class="bola bola-l2 fade">
       <img src="img/bola-laranja.png" alt="" class="bola bola-l3">
     </div>
-
 
     <header class="header">
       <a href="index.html" class="logo">
@@ -25,11 +24,45 @@
       </a>
 
       <nav class="nav">
-        <a href="index.html" class="botao-nav btn-inicio" aria-label="Início"></a>
-        <a href="faq.html" class="botao-nav btn-faq" aria-label="FAQ"></a>
-        <a href="inter.html" class="botao-nav btn-integrantes" aria-label="Integrantes"></a>
-        <a href="sobre.html" class="botao-nav btn-sobre" aria-label="Sobre Nós"></a>
-        <a href="contato.html" class="botao-nav btn-contato" aria-label="Contato"></a>
+        <ul class="menu-principal">
+          <li class="menu-item">
+            <a href="index.html" class="botao-nav btn-inicio" aria-label="Início"></a>
+            <ul class="dropdown">
+              <li><a href="doac.html">Doação</a></li>
+              <li><a href="index.html#midia">Onde a TdB apareceu</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="faq.html" class="botao-nav btn-faq" aria-label="FAQ"></a>
+            <ul class="dropdown">
+              <li><a href="faq.html">Dúvidas Frequentes</a></li>
+              <li><a href="contato.html">Tire sua Dúvida</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="inter.html" class="botao-nav btn-integrantes" aria-label="Integrantes"></a>
+            <ul class="dropdown">
+              <li><a href="inter.html">Conheça a Equipe</a></li>
+              <li><a href="sobre.html">Ferramentas que Usamos</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="sobre.html" class="botao-nav btn-sobre" aria-label="Sobre Nós"></a>
+            <ul class="dropdown">
+              <li><a href="sobre.html">A ONG</a></li>
+              <li><a href="sobre.html#projeto">Nosso Projeto</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="contato.html" class="botao-nav btn-contato" aria-label="Contato"></a>
+            <ul class="dropdown">
+              <li><a href="contato.html">Fale Conosco</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="https://paybox.doare.org/paybox?payboxId=83fed202-df0f-4665-9c74-688a834028d4" target="_blank" class="botao-nav btn-quero-doar" aria-label="Quero Doar"></a>
+          </li>
+        </ul>
       </nav>
     </header>
 
@@ -67,19 +100,8 @@
           <img src="img/Pedro.jpeg" alt="Pedro" class="integrante-foto" />
           <h2>Pedro Silva de Lima</h2>
           <div class="integrante-links">
-<<<<<<< HEAD
             <a href="https://github.com/pedrosilvadelima2206-ux" target="_blank" class="btn btn-outline btn-small">GitHub</a>
             <a href="#" target="_blank" class="btn btn-primary btn-small">LinkedIn</a>
-=======
-            <a
-              href="https://github.com/pedrosilvadelima2206-ux"
-              class="btn btn-outline btn-small"
-              >GitHub</a
-            >
-            <a href="https://www.linkedin.com/in/pedro-silva-1a45b7440/?isSelfProfile=false" class="btn btn-primary btn-small"
-              >LinkedIn</a
-            >
->>>>>>> abe5fdc0c95d6be8d3051c6369540106f9c0df0d
           </div>
         </article>
 
@@ -106,7 +128,9 @@
     </main>
 
     <footer class="footer">
-      <p>Feito pela equipe Bem Coletivo.</p>
+      <p>Feito pela equipe Bem Coletivo &copy; 2026</p>
     </footer>
+
+    <script src="js/script.js"></script>
   </body>
 </html>

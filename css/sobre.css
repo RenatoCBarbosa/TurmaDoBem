@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #e5e5e5; 
+  background-color: #f4f4f4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,16 +14,32 @@ body {
   overflow-x: hidden;
 }
 
-.decoracao-fundo {
+/* ===== BOLINHA QUE SEGUE O MOUSE ===== */
+#cursor-bolinha {
   position: fixed;
-  inset: 0;
-  pointer-events: none; 
-  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(168, 90, 2, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5; 
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
-.bola {
-  position: absolute;
-  animation: flutuar 6s ease-in-out infinite;
+/* ===== BOLAS DE FUNDO ANIMADAS ===== */
+.decoracao-fundo { 
+  position: fixed; 
+  inset: 0; 
+  pointer-events: none; 
+  z-index: 0; 
+}
+
+.bola { 
+  position: absolute; 
+  animation: flutuar 6s ease-in-out infinite; 
 }
 
 .bola-v1 { width: 300px; top: -100px; right: -100px; animation-delay: 0s; }
@@ -33,24 +49,25 @@ body {
 .bola-l2 { width: 200px; bottom: 150px; left: 20px; animation-delay: 3s; }
 .bola-l3 { width: 60px; bottom: 280px; left: 0px; animation-delay: 5s; }
 
-@keyframes flutuar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+@keyframes flutuar { 
+  0%, 100% { transform: translateY(0); } 
+  50% { transform: translateY(-20px); } 
 }
 
-.fade {
-  animation: flutuar 6s ease-in-out infinite, piscar 4s ease-in-out infinite alternate;
+.fade { 
+  animation: flutuar 6s ease-in-out infinite, piscar 4s ease-in-out infinite alternate; 
 }
 
-@keyframes piscar {
-  0% { opacity: 1; }
-  100% { opacity: 0.3; }
+@keyframes piscar { 
+  0% { opacity: 1; } 
+  100% { opacity: 0.3; } 
 }
 
+/* ===== HEADER FOSCO ===== */
 .header {
-  background-color: rgba(181, 187, 15, 0.6); 
-  backdrop-filter: blur(10px); 
-  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(245, 245, 245, 0.75); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,87 +75,136 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid rgba(181, 187, 15, 0.8);
   min-height: 75px;
 }
 
-.logo {
-  z-index: 2;
-}
-
-.logo-image {
-  height: 55px;
-  width: auto;
-  display: block;
-}
+.logo { z-index: 2; }
+.logo-image { height: 55px; width: auto; display: block; }
 
 .nav {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.menu-principal {
   display: flex;
-  align-items: center;
+  list-style: none;
   gap: 1rem;
 }
 
+.menu-item {
+  position: relative;
+}
+
+/* ===== BOTÕES DO MENU ===== */
 .botao-nav {
-  display: block;
+  display: block; 
   height: 45px; 
   background-size: contain; 
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; 
   background-position: center;
-  transition: transform 0.3s ease;
-  cursor: pointer;
+  transition: transform 0.3s ease; 
+  cursor: pointer; 
   text-decoration: none;
 }
 
-.btn-inicio { width: 150px; }
-.btn-faq { width: 150px; }
-.btn-integrantes { width: 150px; }
-.btn-sobre { width: 150px; }
-.btn-contato { width: 150px; }
+.btn-inicio, .btn-faq, .btn-integrantes, .btn-sobre, .btn-contato { width: 130px; }
+.btn-quero-doar { width: 150px; }
 
+/* Imagens Normais */
 .btn-inicio { background-image: url('../img/inicio.png'); }
 .btn-faq { background-image: url('../img/faq.png'); }
 .btn-integrantes { background-image: url('../img/integrantes.png'); }
 .btn-sobre { background-image: url('../img/sobre.png'); }
 .btn-contato { background-image: url('../img/contato.png'); }
+.btn-quero-doar { background-image: url('../img/quero-doar.png'); }
 
+/* Imagens Hover */
 .btn-inicio:hover { background-image: url('../img/inicio-laranja.png'); }
 .btn-faq:hover { background-image: url('../img/faq-laranja.png'); }
 .btn-integrantes:hover { background-image: url('../img/integrantes-laranja.png'); }
 .btn-sobre:hover { background-image: url('../img/sobre-laranja.png'); }
 .btn-contato:hover { background-image: url('../img/contato-laranja.png'); }
+.btn-quero-doar:hover { background-image: url('../img/quero-doar-laranja.png'); }
 
-.botao-nav:hover {
-  transform: scale(1.1);
+.botao-nav:hover { transform: scale(1.05); }
+
+/* ===== DROPDOWN ===== */
+.dropdown {
+  display: none; 
+  position: absolute;
+  top: 100%; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  min-width: 220px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  list-style: none;
+  z-index: 200;
 }
 
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -15px; 
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background-color: transparent; 
+}
+
+.menu-item:hover .dropdown { display: block; }
+.dropdown li:first-child { margin-top: 10px; }
+
+.dropdown li a {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown li a:hover {
+  background-color: #f4f4f4;
+  color: #e67e22;
+}
+
+/* ===== CONTEÚDO DO SOBRE ===== */
 .main-content {
-  position: relative;
-  z-index: 10;
+  position: relative; 
+  z-index: 10; 
   flex: 1;
-  width: 90%;
-  max-width: 1200px;
+  width: 90%; 
+  max-width: 1000px; 
   margin: 2rem auto;
 }
 
-.page-title {
-  font-size: 2.5rem;
-  color: #e67e22;
-  font-weight: bold;
-}
-
-.page-title span {
-  color: #e67e22;
-}
-
-.page-subtitle {
-  font-size: 1rem;
-  color: #555;
+.page-header {
   margin-bottom: 2rem;
 }
 
+.page-title { 
+  font-size: 2.5rem; 
+  color: #e67e22; 
+  font-weight: bold; 
+}
+
+.page-title span { color: #e67e22; }
+
+.page-subtitle { 
+  font-size: 1rem; 
+  color: #555; 
+  margin-top: 0.5rem;
+}
+
+/* Seções de Texto */
 .sobre-ong,
 .sobre-projeto,
 .sobre-publico {
@@ -174,6 +240,7 @@ body {
   color: #e67e22;
 }
 
+/* Cards do Projeto */
 .projeto-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -182,7 +249,7 @@ body {
 }
 
 .projeto-card {
-  background-color: #fff8e1; /* Fundo creme suave */
+  background-color: #fff8e1;
   border-radius: 10px;
   padding: 1.5rem;
   border-left: 4px solid #e67e22;
@@ -207,6 +274,7 @@ body {
   margin-bottom: 0;
 }
 
+/* Lista do Público */
 .sobre-publico ul {
   margin: 1rem 0 1.5rem 1.5rem;
   color: #444;
@@ -218,16 +286,97 @@ body {
   margin-bottom: 0.8rem;
 }
 
+.tabs-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background-color: #f0f0f0;
+  color: #e67e22;
+}
+
+.tab-btn.active {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.tab-content {
+  display: none; /* Esconde todas as abas */
+  animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+  display: block; /* Mostra só a ativa */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== FOOTER ===== */
 .footer {
-  position: relative;
-  z-index: 10;
-  background-color: rgba(181, 187, 15, 0.6); 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  position: relative; 
+  z-index: 10; 
+  background-color: rgba(181, 187, 15, 0.9); 
   color: #fff; 
-  text-align: center;
-  padding: 1.2rem;
-  font-size: 0.9rem;
-  margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.2); 
+  text-align: center; 
+  padding: 1.5rem; 
+  font-size: 0.9rem; 
+  margin-top: auto; 
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f4f4f4; }
+::-webkit-scrollbar-thumb { background: #b5bb0f; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #e67e22; }
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1100px) {
+  .nav {
+    position: relative;
+    left: 0;
+    transform: none;
+    margin-top: 1rem;
+  }
+
+  .menu-principal {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .btn-inicio, .btn-faq, .btn-integrantes, .btn-sobre, .btn-contato, .btn-quero-doar {
+    width: 120px;
+    height: 40px;
+  }
+
+  .dropdown { left: 50%; transform: translateX(-50%); }
+}
+
+@media (max-width: 600px) {
+  .page-title { font-size: 2rem; }
+  .sobre-ong, .sobre-projeto, .sobre-publico { padding: 1.5rem; }
+  .sobre-ong h2, .sobre-projeto h2, .sobre-publico h2 { font-size: 1.5rem; }
 }
